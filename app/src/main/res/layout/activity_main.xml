@@ -6,13 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <Button
         android:id="@+id/scanBtn"
-        android:layout_centerInParent="true"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Scan now"
-        android:textSize="30sp"
-         />
+        android:layout_width="105dp"
+        android:layout_height="99dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="292dp"
+        android:layout_marginTop="613dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="19dp"
+        android:background="@drawable/roundedbutton"
+        android:drawableLeft="@drawable/barcode_scanner64"
+        android:textSize="30sp" />
 
 </RelativeLayout>
