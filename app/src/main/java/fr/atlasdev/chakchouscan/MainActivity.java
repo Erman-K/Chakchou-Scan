@@ -13,6 +13,8 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
+import java.util.concurrent.ExecutionException;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener{
 
     Button scanBtn;
@@ -49,6 +51,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             if(result.getContents() != null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(result.getContents());
+
+                String rep = null;
+                try {
+                    rep = new Handler().execute(result.getContents()).get();
+                } catch (ExecutionException e) {
+                    e.printStackTrace();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                builder.setMessage(rep);
+
                 builder.setTitle("Scanning Result");
                 builder.setPositiveButton("Scan Again", new DialogInterface.OnClickListener() {
                     @Override
