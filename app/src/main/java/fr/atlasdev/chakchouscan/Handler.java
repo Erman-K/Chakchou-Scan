@@ -2,6 +2,8 @@ package fr.atlasdev.chakchouscan;
 
 import android.os.AsyncTask;
 
+import org.json.JSONException;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,7 +25,14 @@ public class Handler extends AsyncTask<String, Void, String> implements HandlerC
 
     @Override
     protected String doInBackground(String... strings) {
-        return httpServiceCall(strings[0]);
+        String json = httpServiceCall(strings[0]);
+        String info = "";
+        try {
+            info = new JsonParse(json).getInfo();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return info;
     }
 
     @Override

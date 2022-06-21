@@ -14,6 +14,7 @@ public class APIAccess {
     private StringBuffer responseContent = new StringBuffer();
     private URL url;
 
+
     public static APIAccess getInstance(){
         if(instance==null){
             instance = new APIAccess();
@@ -69,9 +70,4 @@ public class APIAccess {
         }
         return responseContent.toString();
     }
-
-//    public static void main(String [] args){
-//        String ricola = "3174332018280";
-//        getInstance().getItem(ricola);
-//    }
 }
