@@ -8,17 +8,20 @@ import android.view.View;
 
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class Home extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_home);
+    }
+    public void login(View view){
+        startActivity(new Intent(getApplicationContext(),Login.class));
+        finish();
     }
 
-    public void logout(View view){
-        FirebaseAuth.getInstance().signOut();
-        startActivity(new Intent(getApplicationContext(),Login.class));
+    public void register(View view){
+        startActivity(new Intent(getApplicationContext(),Register.class));
         finish();
     }
 }

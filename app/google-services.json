@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "299151610981",
+    "project_id": "chakchouscan",
+    "storage_bucket": "chakchouscan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299151610981:android:e7521ebe6cd40ec7c7228c",
+        "android_client_info": {
+          "package_name": "fr.atlasdev.chakchouscan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299151610981-f1hfl7ka915t4tmi493k1g6lafqhacmq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANvWVEJBre-pgxmPt9GItg4x1FRTJoamo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299151610981-f1hfl7ka915t4tmi493k1g6lafqhacmq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
