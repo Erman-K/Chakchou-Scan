@@ -1,12 +1,10 @@
 package fr.atlasdev.chakchouscan;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,87 +13,62 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
-    EditText mEmail,mPassword;
-    Button mLoginBtn;
-    TextView mCreateBtn, mHomeBtn;
-    ProgressBar progressBar;
-    FirebaseAuth fAuth;
+
+    TextInputEditText etLoginEmail;
+    TextInputEditText etLoginPassword;
+    TextView tvRegisterHere;
+    Button btnLogin;
+
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        mEmail = findViewById(R.id.email);
-        mPassword = findViewById(R.id.password);
-        progressBar = findViewById(R.id.progressBar);
-        fAuth = FirebaseAuth.getInstance();
-        mLoginBtn = findViewById(R.id.btnLogin);
-        mCreateBtn = findViewById(R.id.textRegister);
-        mHomeBtn = findViewById(R.id.txtHome);
+        etLoginEmail = findViewById(R.id.etLoginEmail);
+        etLoginPassword = findViewById(R.id.etLoginPass);
+        tvRegisterHere = findViewById(R.id.tvRegisterHere);
+        btnLogin = findViewById(R.id.btnLogin);
 
-        mLoginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        mAuth = FirebaseAuth.getInstance();
 
-                String email = mEmail.getText().toString().trim();
-                String password = mPassword.getText().toString().trim();
-
-                if(TextUtils.isEmpty(email)){
-                    mEmail.setError("Email is Required.");
-                    return;
-                }
-
-                if(TextUtils.isEmpty(password)){
-                    mPassword.setError("Password is Required.");
-                    return;
-                }
-
-                if(password.length() < 6){
-                    mPassword.setError("Password Must be >= 6 Characters");
-                    return;
-                }
-
-                progressBar.setVisibility(View.VISIBLE);
-
-                // authenticate the user
-
-                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(Login.this, "Successfully Logged In", Toast.LENGTH_LONG).show();
-//                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                            Intent intent = new Intent(Login.this, MainActivity.class);
-                            startActivity(intent);
-
-                        }else {
-                            Toast.makeText(Login.this, "Error ! " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            progressBar.setVisibility(View.GONE);
-                        }
-
-                    }
-                });
-
-            }
+        btnLogin.setOnClickListener(view -> {
+            loginUser();
         });
-
-        mCreateBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Register.class));
-            }
-        });
-
-        mHomeBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),Home.class));
-            }
+        tvRegisterHere.setOnClickListener(view ->{
+            startActivity(new Intent(Login.this, Register.class));
         });
     }
+
+    private void loginUser(){
+        String email = etLoginEmail.getText().toString();
+        String password = etLoginPassword.getText().toString();
+
+        if (TextUtils.isEmpty(email)){
+            etLoginEmail.setError("Email cannot be empty");
+            etLoginEmail.requestFocus();
+        }else if (TextUtils.isEmpty(password)){
+            etLoginPassword.setError("Password cannot be empty");
+            etLoginPassword.requestFocus();
+        }else{
+            mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                @Override
+                public void onComplete(@NonNull Task<AuthResult> task) {
+                    if (task.isSuccessful()){
+                        Toast.makeText(Login.this, "User logged in successfully", Toast.LENGTH_SHORT).show();
+                        startActivity(new Intent(Login.this, MainActivity.class));
+                    }else{
+                        Toast.makeText(Login.this, "Log in Error: " + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    }
+                }
+            });
+        }
+    }
+
 }
