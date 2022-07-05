@@ -2,7 +2,7 @@ package fr.atlasdev.chakchouscan;
 
 import java.util.ArrayList;
 
-public class ListeCourses {
+public class  ListeCourses {
     private ArrayList<Ingredient> liste;
 
     public ListeCourses(){
@@ -13,8 +13,8 @@ public class ListeCourses {
         liste.add(item);
     }
 
-    public void addRaw(String nom, double quantite, String unite){
-        liste.add(new Ingredient(nom, quantite, unite));
+    public void addRaw(String nom, double quantite, String ns,int nova, String url){
+        liste.add(new Ingredient(nom, quantite, ns,nova, url));
     }
 
     @Override
@@ -26,11 +26,4 @@ public class ListeCourses {
         return str;
     }
 
-    public static void main(String [] args){
-        ListeCourses test = new ListeCourses();
-        test.addRaw("Mais",400,"g");
-        test.addRaw("Lait", 2, "L");
-        test.addRaw("Jus de citron", 20, "mL");
-        System.out.print(test);
-    }
 }

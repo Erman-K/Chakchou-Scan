@@ -3,19 +3,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+
 
 import android.content.DialogInterface;
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -84,9 +81,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if(result != null){
             if(result.getContents() != null){
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
                 builder.setMessage(result.getContents());
 
-                String rep = null;
+                Ingredient rep = null;
                 try {
                     rep = new Handler().execute(result.getContents()).get();
                 } catch (ExecutionException e) {
@@ -94,9 +92,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                builder.setMessage(rep);
+                builder.setMessage(rep.toString());
 
                 builder.setTitle("Scanning Result");
+               /**/
+
+                AlertDialog dialog= builder.create();
+              /*  AlertDialog.Builder alertadd = new AlertDialog.Builder(MessageDemo.this);*/
+                LayoutInflater factory = LayoutInflater.from(MainActivity.this);
+                final View view = factory.inflate(R.layout.activity_dialog, null);
+                dialog.setView(view);
                 builder.setPositiveButton("Scan Again", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -105,10 +110,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 }).setNegativeButton("finish", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
+                        /* dialog.dismiss();*/
                         startActivity(new Intent(MainActivity.this, MainActivity.class));
                     }
                 });
-                AlertDialog dialog= builder.create();
+
                 dialog.show();
 
             }
@@ -132,3 +138,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 }
+

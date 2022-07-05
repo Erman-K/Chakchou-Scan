@@ -52,7 +52,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener{
                 AlertDialog.Builder builder = new AlertDialog.Builder(this);
                 builder.setMessage(result.getContents());
 
-                String rep = null;
+                Ingredient rep = null;
                 try {
                     rep = new Handler().execute(result.getContents()).get();
                 } catch (ExecutionException e) {
@@ -60,7 +60,7 @@ public class HomePage extends AppCompatActivity implements View.OnClickListener{
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                builder.setMessage(rep);
+                builder.setMessage(rep.toString());
 
                 builder.setTitle("Scanning Result");
                 builder.setPositiveButton("Scan Again", new DialogInterface.OnClickListener() {

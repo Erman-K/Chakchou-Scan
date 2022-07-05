@@ -14,19 +14,19 @@ import java.net.ProtocolException;
 import java.net.URL;
 import javax.net.ssl.HttpsURLConnection;
 
-public class Handler extends AsyncTask<String, Void, String> implements HandlerCallback{
+public class Handler extends AsyncTask<String, Void, Ingredient> implements HandlerCallback{
     private HttpsURLConnection connection;
     private StringBuffer responseContent = new StringBuffer();
 
-    @Override
-    protected void onPostExecute(String result) {
+   /* @Override*/
+    protected void onPostExecute(Ingredient result) {
         onResponseReceived(result);
     }
 
     @Override
-    protected String doInBackground(String... strings) {
+    protected Ingredient doInBackground(String... strings) {
         String json = httpServiceCall(strings[0]);
-        String info = "";
+        Ingredient info = null;
         try {
             info = new JsonParse(json).getInfo();
         } catch (JSONException e) {
@@ -95,7 +95,7 @@ public class Handler extends AsyncTask<String, Void, String> implements HandlerC
     }
 
     @Override
-    public void onResponseReceived(String result) {
+    public void onResponseReceived(Ingredient result) {
 
     }
 }
