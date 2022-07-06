@@ -6,14 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".Accueil">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Accueil"
-        android:textSize="50sp"
-        android:textStyle="bold"
-        android:layout_centerInParent="true"/>
-
+    <include layout="@layout/liste_recette" />
 
     <Button
         android:id="@+id/scanBtn"
