@@ -17,11 +17,15 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.ui.database.FirebaseListAdapter;
+import com.firebase.ui.database.FirebaseListOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.firebase.FirebaseOptions;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -38,6 +42,7 @@ public class Accueil extends AppCompatActivity implements View.OnClickListener {
 
     Button scanBtn;
     private ListView listView;
+    private FirebaseListAdapter<ListeItem> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,22 +50,43 @@ public class Accueil extends AppCompatActivity implements View.OnClickListener {
         setContentView(R.layout.activity_accueil);
 
         listView = (ListView) findViewById(R.id.recettes);
-        DatabaseReference recettesReference = FirebaseDatabase.getInstance().getReference().child("recettes");
+        DatabaseReference recettesReference = FirebaseDatabase.getInstance("https://chakchouscan-default-rtdb.europe-west1.firebasedatabase.app").getReference().child("recettes");
+        Log.d("Connexion", "Connecté en théorie" + recettesReference);
+//        recettesReference.addValueEventListener(new ValueEventListener() {
+//            @Override
+//            public void onDataChange(@NonNull DataSnapshot snapshot) {
+//                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
+//                    ListeItem listeItem = postSnapshot.getValue(ListeItem.class);
+//                }
+//
+//            }
+//
+//            @Override
+//            public void onCancelled(@NonNull DatabaseError error) {
+//
+//            }
+//        });
 
-        recettesReference.addValueEventListener(new ValueEventListener() {
+        FirebaseListOptions<ListeItem> options = new FirebaseListOptions.Builder<ListeItem>()
+                .setLayout(R.layout.liste_item)
+                .setQuery(recettesReference, ListeItem.class)
+                .build();
+        Log.d("Connexion", "Options créées en théorie " + options);
+
+        adapter = new FirebaseListAdapter<ListeItem>(options) {
+
             @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-                    ListeItem listeItem = postSnapshot.getValue(ListeItem.class);
-                }
-
+            protected void populateView(@NonNull View v, @NonNull ListeItem model, int position) {
+                Log.d("Connexion", "Lancement de population "+ model.getTitle() + " et view: " + v);
+                TextView title = v.findViewById(R.id.liste_item);
+                title.setText(model.getTitle());
+                Log.d("Connexion", "Ajouté en théorie " + model.getTitle());
             }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
+        };
+        listView.setAdapter(adapter);
 
-            }
-        });
+        adapter.startListening();
 
         BottomNavigationView bottomNavigationView=findViewById(R.id.bottom_navigation);
         bottomNavigationView.setSelectedItemId(R.id.accueil);
@@ -159,5 +185,9 @@ public class Accueil extends AppCompatActivity implements View.OnClickListener {
     }
     /* Scan Code*/
 
-
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
+    }
 }

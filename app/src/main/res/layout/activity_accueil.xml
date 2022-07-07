@@ -6,7 +6,27 @@
     android:layout_height="match_parent"
     tools:context=".Accueil">
 
-    <include layout="@layout/liste_recette" />
+    <TextView
+        android:id="@+id/titre_recette"
+        android:layout_width="match_parent"
+        android:layout_height="25dp"
+        android:text="Toutes les recettes"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="20dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/white"
+        android:layout_below="@id/titre_recette"/>
+
+    <ListView
+        android:id="@+id/recettes"
+        android:layout_width="match_parent"
+        tools:listitem="@layout/liste_item"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/titre_recette" />
 
     <Button
         android:id="@+id/scanBtn"
