@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/titre_recette"
@@ -10,26 +9,18 @@
         android:layout_height="25dp"
         android:text="Toutes les recettes"
         android:textAlignment="center"
-        android:textColor="@color/green"
-        android:textSize="20dp" />
-
-    <TextView
-        android:id="@+id/test"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/green"
-        android:text="test"/>
+        android:textColor="@color/white"
+        android:textSize="20dp"/>
     
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:background="@color/black"
+        android:background="@color/white"
         android:layout_below="@id/titre_recette"/>
 
     <ListView
         android:id="@+id/recettes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/titre_recette"
-        tools:listitem="@layout/liste_item"/>
+        android:layout_below="@+id/titre_recette" />
 </RelativeLayout>

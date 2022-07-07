@@ -19,7 +19,13 @@
         <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable-anydpi/ic_action_name.xml" value="0.2101851851851852" />
         <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable/ic_scan.xml" value="0.2101851851851852" />
         <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable/roundedbutton.xml" value="0.2101851851851852" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/activity_main.xml" value="0.536" />
+        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/activity_accueil.xml" value="0.15443840579710144" />
+        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/activity_home.xml" value="0.15443840579710144" />
+        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/activity_liste.xml" value="0.4" />
+        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/activity_login.xml" value="0.15443840579710144" />
+        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/activity_main.xml" value="0.176" />
+        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/activity_register.xml" value="0.11041666666666666" />
+        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/liste_recette.xml" value="0.15443840579710144" />
       </map>
     </option>
   </component>
