@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -37,21 +38,26 @@ import java.util.concurrent.ExecutionException;
 public class Accueil extends AppCompatActivity implements View.OnClickListener {
 
     Button scanBtn;
-    private ListView listView;
+    private String listView;
+    private DatabaseReference recettesReference;
+    private TextView titre;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_accueil);
 
-        listView = (ListView) findViewById(R.id.recettes);
-        DatabaseReference recettesReference = FirebaseDatabase.getInstance().getReference().child("recettes");
+        listView = "";
+        titre = findViewById(R.id.test);
+        recettesReference = FirebaseDatabase.getInstance("https://chakchouscan-default-rtdb.europe-west1.firebasedatabase.app/").getReference().child("recettes");
+        getData();
 
         recettesReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 for (DataSnapshot postSnapshot: snapshot.getChildren()) {
-                    ListeItem listeItem = postSnapshot.getValue(ListeItem.class);
+                    String listeItem = postSnapshot.getValue(String.class);
+                    titre.setText(listeItem);
                 }
 
             }
@@ -88,6 +94,21 @@ public class Accueil extends AppCompatActivity implements View.OnClickListener {
 
         scanBtn = findViewById(R.id.scanBtn);
         scanBtn.setOnClickListener(this);
+    }
+
+    private void getData(){
+        recettesReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                String value = snapshot.getValue(String.class);
+                titre.setText(value);
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(Accueil.this, "Echec de la récuperation des données", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /* Scan Code*/

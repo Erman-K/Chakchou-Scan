@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "299151610981",
+    "firebase_url": "https://chakchouscan-default-rtdb.europe-west1.firebasedatabase.app/",
     "project_id": "chakchouscan",
     "storage_bucket": "chakchouscan.appspot.com"
   },

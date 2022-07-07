@@ -3,35 +3,23 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/basil/Documents/Efrei/Github/chakchou-scan/app/src/main/res/drawable/accueil.xml" value="0.252" />
+        <entry key="..\:/Users/basil/Documents/Efrei/Github/chakchou-scan/app/src/main/res/drawable/liste.xml" value="0.252" />
+        <entry key="..\:/Users/basil/Documents/Efrei/Github/chakchou-scan/app/src/main/res/drawable/logout.xml" value="0.1465" />
         <entry key="..\:/Users/basil/Documents/Efrei/Github/chakchou-scan/app/src/main/res/drawable/roundedbutton.xml" value="0.1315" />
-        <entry key="..\:/Users/basil/Documents/Efrei/Github/chakchou-scan/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/basil/Documents/Efrei/Github/chakchou-scan/app/src/main/res/drawable/selector.xml" value="0.137" />
+        <entry key="..\:/Users/basil/Documents/Efrei/Github/chakchou-scan/app/src/main/res/layout/activity_accueil.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/basil/Documents/Efrei/Github/chakchou-scan/app/src/main/res/layout/activity_dialog.xml" value="0.1265625" />
+        <entry key="..\:/Users/basil/Documents/Efrei/Github/chakchou-scan/app/src/main/res/layout/activity_liste.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/basil/Documents/Efrei/Github/chakchou-scan/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/basil/Documents/Efrei/Github/chakchou-scan/app/src/main/res/layout/liste_item.xml" value="0.1265625" />
+        <entry key="..\:/Users/basil/Documents/Efrei/Github/chakchou-scan/app/src/main/res/layout/liste_recette.xml" value="0.264" />
+        <entry key="..\:/Users/basil/Documents/Efrei/Github/chakchou-scan/app/src/main/res/menu/menu_navigation.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/bordi/AndroidStudioProjects/ChakchouScan/app/src/main/res/layout/activity_main.xml" value="0.12183383991894631" />
         <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable-anydpi/ic_action_name.xml" value="0.2101851851851852" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable/background_main.xml" value="0.1" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable/btn_view.xml" value="0.1" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable/edit_text_box.xml" value="0.1" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable/ic_baseline_edit_24.xml" value="0.1" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable/ic_baseline_mail_24.xml" value="0.1" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26614583333333336" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable/ic_lock.xml" value="0.1" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable/ic_name.xml" value="0.1" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable/ic_phone.xml" value="0.1" />
         <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable/ic_scan.xml" value="0.2101851851851852" />
         <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/drawable/roundedbutton.xml" value="0.2101851851851852" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/font/advant_pro_thin.xml" value="0.15729166666666666" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/activity_home.xml" value="0.19202898550724637" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/activity_login.xml" value="0.264" />
         <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/activity_main.xml" value="0.536" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/activity_main2.xml" value="0.23822463768115942" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/activity_register.xml" value="0.19202898550724637" />
-        <entry key="..\:/Users/bordi/OneDrive/Documents/GitHub/Chakchou-Scan/app/src/main/res/layout/activity_toolbar.xml" value="0.1" />
-        <entry key="..\:/basil/Documents/Github/Chakchou-Scan/app/src/main/res/drawable/liste.xml" value="0.319" />
-        <entry key="..\:/basil/Documents/Github/Chakchou-Scan/app/src/main/res/drawable/listitem.xml" value="0.319" />
-        <entry key="..\:/basil/Documents/Github/Chakchou-Scan/app/src/main/res/layout/activity_accueil.xml" value="0.19635416666666666" />
-        <entry key="..\:/basil/Documents/Github/Chakchou-Scan/app/src/main/res/layout/activity_dialog.xml" value="0.19635416666666666" />
-        <entry key="..\:/basil/Documents/Github/Chakchou-Scan/app/src/main/res/layout/activity_main.xml" value="0.19635416666666666" />
-        <entry key="..\:/basil/Documents/Github/Chakchou-Scan/app/src/main/res/layout/liste_item.xml" value="0.36666666666666664" />
-        <entry key="..\:/basil/Documents/Github/Chakchou-Scan/app/src/main/res/layout/liste_recette.xml" value="0.36666666666666664" />
       </map>
     </option>
   </component>
