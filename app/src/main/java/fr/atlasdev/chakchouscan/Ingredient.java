@@ -4,23 +4,28 @@ public class Ingredient {
     private String nom;
     private double quantite;
     private String nutriscore;
+    private String ecoscore;
     private int novascore;
     private String img_url;
 
     public Ingredient(){
-        this.nom = "";
+        this.nom = "No information";
         this.quantite = 0;
-        this.nutriscore = "";
+        this.nutriscore = "No information";
+        this.ecoscore = "No information";
         this.novascore = 0;
-        this.img_url = "";
+        this.img_url = "No information";
     }
 
 
-    public Ingredient(String nom, double qt, String ns, int nova, String url){
+
+
+    public Ingredient(String nom, double qt, String ns, String es, int nova, String url){
         this.nom = nom;
         this.quantite = qt;
         this.novascore = nova;
         this.nutriscore = ns;
+        this.ecoscore = es;
         this.img_url = url;
     }
 
@@ -34,6 +39,10 @@ public class Ingredient {
 
     public int getNovascore() {
         return novascore;
+    }
+
+    public String getEcoscore() {
+        return ecoscore;
     }
 
     public String getUrlAsString() {
@@ -64,8 +73,16 @@ public class Ingredient {
         this.novascore = novascore;
     }
 
+    public void setEcoscore(String ecoscore) {
+        this.ecoscore = ecoscore;
+    }
+
     @Override
     public String toString(){
-        return nom + ": " + quantite + "nutriscore :" + nutriscore + "img_url :" + img_url + "\n";
+        if (quantite <= 0 & novascore <= 0 & novascore > 4) return nom + "\nQuantité : NO INFORMATION"  + "\nNutriscore : " + nutriscore.toUpperCase() + "\nEcoscore : " + ecoscore.toUpperCase() +"\nNovascore : NO INFORMATION";
+        if (quantite <= 0 & novascore > 0 & novascore <= 4) return nom + "\nQuantité : NO INFORMATION"  + "\nNutriscore : " + nutriscore.toUpperCase() + "\nEcoscore : " + ecoscore.toUpperCase() +"\nNovascore : " + novascore;
+        if (quantite != 0 & novascore <= 0 & novascore > 4) return nom + "\nQuantité : " + quantite  + "\nNutriscore : " + nutriscore.toUpperCase() + "\nEcoscore : " + ecoscore.toUpperCase() +"\nNovascore : NO INFORMATION ";
+
+        return nom + "\nQuantité : " + quantite + "\nNutriscore : " + nutriscore.toUpperCase() + "\nEcoscore : " + ecoscore.toUpperCase() +"\nNovascore : " + novascore;
     }
 }

@@ -13,8 +13,8 @@ public class  ListeCourses {
         liste.add(item);
     }
 
-    public void addRaw(String nom, double quantite, String ns,int nova, String url){
-        liste.add(new Ingredient(nom, quantite, ns,nova, url));
+    public void addRaw(String nom, double quantite, String ns, String es, int nova, String url){
+        liste.add(new Ingredient(nom, quantite, ns, es,nova, url));
     }
 
     @Override
